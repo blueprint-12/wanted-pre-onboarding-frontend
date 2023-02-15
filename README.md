@@ -4,17 +4,18 @@
 
 ## 목차
 
-[1. 실행 방법](#1-실행-방법)  
-[2. 설치 패키지](#2-설치패키지)  
-[3. 배포 링크](#3-배포-사이트)
+[1. how to start](#1-setup)  
+[2. 설치 패키지](#2-설치패키지)
 
-## 1. 실행 방법
+#이동할 위치
+
+## 1. setup
 
 ```bash
-git clone https://github.com/blueprint-12/wanted-pre-onboarding-frontend.git
-
-yarn && yarn start
+yarn create react-app [folderName] --template typescript
 ```
+
+- 저는 해당 폴더의 내부에 바로 만들어주기 위해서 folderName부분을 .으로 대체하여 실행했습니다.
 
 ## 2. 설치 패키지
 
@@ -36,7 +37,3 @@ react-router v6
 yarn add react-router-dom && yarn add @types/react-router-dom
 
 ```
-
-## 3. 배포 사이트
-
-### <a href="http://mytodo.test.s3-website.ap-northeast-2.amazonaws.com ">배포 사이트 바로가기</a>

@@ -1,15 +1,13 @@
 import React from "react";
-import styled from "styled-components";
+
 import TodoList from "../components/TodoList/TodoList";
-import TodoContextWrapper from "../context/todoContext/TodoContext";
+import styled from "styled-components";
 
 export default function ContentsPage() {
   return (
     <FlexWrapper className="container">
-      <TodoContextWrapper>
-        <h2>콘텐츠 페이지(todoList)</h2>
-        <TodoList />
-      </TodoContextWrapper>
+      <h2>콘텐츠 페이지(todoList)</h2>
+      <TodoList />
     </FlexWrapper>
   );
 }

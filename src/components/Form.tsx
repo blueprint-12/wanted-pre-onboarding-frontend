@@ -34,6 +34,7 @@ const LoginForm = ({ title, formHandler }: FormProps) => {
 
   const handleSubmit = (event: React.FormEvent<HTMLElement>) => {
     event.preventDefault();
+    alert("is it work?");
     formHandler(formData);
   };
 
