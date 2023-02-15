@@ -9,9 +9,3 @@ export default function SingUpPage() {
     </div>
   );
 }
-const Wapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-`;
