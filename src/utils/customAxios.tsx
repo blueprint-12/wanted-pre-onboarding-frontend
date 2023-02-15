@@ -5,7 +5,7 @@ interface CustomError {
   message: string;
 }
 
-const token = localStorage.getItem("access_token") || "";
+const token = localStorage.getItem("access_token");
 const BASE_URL = "https://pre-onboarding-selection-task.shop";
 
 export const api = axios.create({
@@ -20,6 +20,11 @@ export const api = axios.create({
 //요청 API
 api.interceptors.request.use(
   (config) => {
+    const token = localStorage.getItem("access_token");
+
+    if (token && config.headers) {
+      config.headers["Authorization"] = `Bearer ${token}`;
+    }
     return config;
   },
   (err) => {
