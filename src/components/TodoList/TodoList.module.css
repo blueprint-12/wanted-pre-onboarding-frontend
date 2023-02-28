@@ -1,0 +1,22 @@
+.todoList {
+  background-color: aliceblue;
+  padding: 20px;
+  overflow: auto;
+}
+.todoList__todo {
+  padding: 10px 5px;
+  width: 700px;
+}
+/* 모바일 화면  */
+@media screen and (max-width: 786px) {
+  .todoList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    width: 100%;
+  }
+  .todoList__todo {
+    width: 90%;
+  }
+}

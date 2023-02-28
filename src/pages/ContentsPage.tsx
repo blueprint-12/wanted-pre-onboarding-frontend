@@ -15,9 +15,12 @@ export default function ContentsPage() {
 }
 
 const FlexWrapper = styled.div`
-  width: 700px;
+  margin-top: 50px;
+  min-width: inherit;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
   background-color: #d6d6d6;
   height: 70vh;
 `;

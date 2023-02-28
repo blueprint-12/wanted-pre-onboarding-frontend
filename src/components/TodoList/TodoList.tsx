@@ -1,17 +1,17 @@
-import { useEffect } from "react";
+import { useEffect, useCallback } from "react";
 import ATodo from "./ATodo";
 import AddATodo from "./AddATodo";
 import { api } from "./../../utils/customAxios";
 import { IATodo } from "./ATodo";
 import useDispatch from "../../hooks/useDispatch";
 import useTodoState from "./../../hooks/useTodoState";
-import styled from "styled-components";
+import styles from "./TodoList.module.css";
 
 export default function TodoList() {
   const dispatch = useDispatch();
   const todoList = useTodoState();
 
-  const getTodoList = async () => {
+  const getTodoList = useCallback(async () => {
     await api
       .get("/todos")
       .then((res) => {
@@ -22,30 +22,21 @@ export default function TodoList() {
       .catch((err) => {
         console.log(err.message);
       });
-  };
+  }, [dispatch]);
+
   useEffect(() => {
     getTodoList();
   }, []);
   return (
-    <Wapper className="todoList">
+    <div className={styles.todoList}>
       <AddATodo />
       {todoList.map((aTodo: IATodo) => {
         return (
-          <TodoWrapper className="todoList__todo" key={aTodo.id}>
+          <li className={styles.todoList__todo} key={aTodo.id}>
             <ATodo {...aTodo}></ATodo>
-          </TodoWrapper>
+          </li>
         );
       })}
-    </Wapper>
+    </div>
   );
 }
-
-const Wapper = styled.ul`
-  height: min-content;
-  background-color: aliceblue;
-  padding: 20px;
-`;
-
-const TodoWrapper = styled.li`
-  padding: 10px 5px;
-`;
