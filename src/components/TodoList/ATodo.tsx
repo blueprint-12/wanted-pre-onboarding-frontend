@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import api from "../../utils/customAxios";
 import useDispatch from "./../../hooks/useDispatch";
@@ -15,15 +15,6 @@ export default function ATodo({ id, todo, isCompleted, userId }: IATodo) {
   const [isEdit, setIsEdit] = useState(false);
   const dispatch = useDispatch();
 
-  //서버와 클라이언트 비동기 checkBox 이슈 해결 못함
-  //useState()가 동기적으로 실행되고 그 다음에 update를 해야함 -> 하지만 useState는 비동기처리
-  useEffect(() => {
-    if (aTodo.isCompleted) {
-      console.log("지금은 완료상태");
-    } else {
-      console.log("지금은 취소상태!");
-    }
-  }, [aTodo.isCompleted]);
   //삭제하기
   const handleDelete = async (id: number) => {
     await api
@@ -72,7 +63,7 @@ export default function ATodo({ id, todo, isCompleted, userId }: IATodo) {
       });
       handleUpdate({
         ...aTodo,
-        isCompleted: aTodo.isCompleted,
+        isCompleted: !aTodo.isCompleted,
       });
     }
     //완료상태라 true값일 때
@@ -83,7 +74,7 @@ export default function ATodo({ id, todo, isCompleted, userId }: IATodo) {
       });
       handleUpdate({
         ...aTodo,
-        isCompleted: aTodo.isCompleted,
+        isCompleted: !aTodo.isCompleted,
       });
     }
   };
@@ -91,7 +82,7 @@ export default function ATodo({ id, todo, isCompleted, userId }: IATodo) {
   return (
     <Wrapper>
       {isEdit ? (
-        <TodoBackGroundWrapper>
+        <TodoBackGroundWrapper isCompleted={aTodo.isCompleted}>
           <input
             defaultValue={todo}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
@@ -115,7 +106,7 @@ export default function ATodo({ id, todo, isCompleted, userId }: IATodo) {
           </ButtonWrapper>
         </TodoBackGroundWrapper>
       ) : (
-        <TodoBackGroundWrapper>
+        <TodoBackGroundWrapper isCompleted={aTodo.isCompleted}>
           {<p>{todo}</p>}
           <CheckBoxWrapper>
             <input
@@ -125,20 +116,23 @@ export default function ATodo({ id, todo, isCompleted, userId }: IATodo) {
               onChange={handleToggleCheckBox}
             />
             <span>TODO #{id}</span>
-            <ButtonWrapper>
-              <button
-                data-testid="modify-button"
-                type="button"
-                onClick={() => setIsEdit(true)}>
-                수정
-              </button>
-              <button
-                data-testid="delete-button"
-                type="button"
-                onClick={() => handleDelete(id)}>
-                삭제
-              </button>
-            </ButtonWrapper>
+            {aTodo.isCompleted ? null : (
+              <ButtonWrapper>
+                <button
+                  data-testid="modify-button"
+                  type="button"
+                  onClick={() => setIsEdit(true)}>
+                  수정
+                </button>
+
+                <button
+                  data-testid="delete-button"
+                  type="button"
+                  onClick={() => handleDelete(id)}>
+                  삭제
+                </button>
+              </ButtonWrapper>
+            )}
           </CheckBoxWrapper>
         </TodoBackGroundWrapper>
       )}
@@ -150,13 +144,18 @@ const Wrapper = styled.div`
   display: flex;
   width: 100%;
 `;
-const TodoBackGroundWrapper = styled.div`
+const TodoBackGroundWrapper = styled.div<{ isCompleted: boolean }>`
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 5px;
-  background-color: antiquewhite;
+  color: ${(props) =>
+    props.isCompleted ? `rgba(15, 15, 15, 0.372)` : "inherit"};
+  background-color: ${(props) =>
+    props.isCompleted
+      ? `rgba(81, 79, 79, 0.548)`
+      : `rgba(174, 212, 237, 0.582)`};
   padding: 5px 10px;
   border-radius: 7px;
   min-height: 50px;
