@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import TodoList from "../components/TodoList/TodoList";
 import TodoContextWrapper from "../context/todoContext/TodoContext";
