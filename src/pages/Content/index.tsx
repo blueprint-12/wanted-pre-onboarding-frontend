@@ -10,6 +10,7 @@ const Content = () => {
 
   useEffect(() => {
     if (!token) routeTo("/signin");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

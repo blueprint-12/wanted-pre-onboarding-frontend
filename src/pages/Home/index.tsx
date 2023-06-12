@@ -9,6 +9,7 @@ const Home = () => {
 
   useEffect(() => {
     if (auth) routeTo("/todo");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

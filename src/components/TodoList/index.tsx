@@ -26,7 +26,7 @@ export default function TodoList() {
 
   useEffect(() => {
     getTodoList();
-  }, [dispatch]);
+  }, [getTodoList]);
 
   let content;
 

@@ -82,6 +82,7 @@ const SignIn = () => {
           value={email}
           onChange={onChangeEmail}
           placeholder="abc@email.com"
+          autoComplete="off"
         />
         {emailErrorMsg && <Error>{emailErrorMsg}</Error>}
 

@@ -1,4 +1,4 @@
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import useAuth from "@hooks/useAuth";
 import { Container, ButtonCont } from "./styles";
 import { useRouter } from "@hooks/useRouter";
