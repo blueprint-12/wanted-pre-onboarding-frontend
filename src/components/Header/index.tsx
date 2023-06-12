@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import useAuth from "@hooks/useAuth";
 import { Container, ButtonCont } from "./styles";
-import { useRouter } from "@hooks/useRouter";
+// import { useRouter } from "@hooks/useRouter";
+import { useNavigate } from "react-router-dom";
 
 export default function Header() {
-  const { routeTo } = useRouter();
+  const routeTo = useNavigate();
   const { auth, setAuth } = useAuth();
 
   const logout = () => {
