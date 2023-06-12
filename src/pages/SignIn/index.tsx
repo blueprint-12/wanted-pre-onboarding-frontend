@@ -55,17 +55,9 @@ const SignIn = () => {
       })
       .catch((error) => {
         // console.log(error);
-        switch (error.status) {
-          case 401:
-            alert("존재하지 않는 사용자입니다.");
-            break;
-          case 404:
-            alert("존재하지 않는 사용자입니다.");
-            break;
-          default:
-            alert("알 수 없는 원인으로 로그인에 실패하였습니다.");
-            break;
-        }
+        if (error.message) alert(error.message);
+        setEmail("");
+        setPassword("");
       });
   };
 
