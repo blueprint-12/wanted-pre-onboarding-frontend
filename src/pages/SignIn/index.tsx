@@ -14,15 +14,15 @@ const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const [emailErrorMsg, setEmailErrorMsg] = useState("");
-  const [passwordErrorMsg, setPasswordErrorMsg] = useState("");
+  const [emailErrorMsg, setEmailErrorMsg] = useState<string | null>("");
+  const [passwordErrorMsg, setPasswordErrorMsg] = useState<string | null>("");
 
   const onChangeEmail = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       const { value } = e.target;
       setEmail(value);
       setEmailErrorMsg(
-        check_email(value) ? "" : "유효한 이메일을 입력해주세요."
+        check_email(value) ? null : "유효한 이메일을 입력해주세요."
       );
     },
     []
@@ -32,7 +32,7 @@ const SignIn = () => {
       const { value } = e.target;
       setPassword(value);
       setPasswordErrorMsg(
-        check_password(value) ? "" : "비밀번호는 8자 이상이어야 합니다."
+        check_password(value) ? null : "비밀번호는 8자 이상이어야 합니다."
       );
     },
     []
@@ -68,6 +68,9 @@ const SignIn = () => {
         }
       });
   };
+
+  const isButtonDisabled = emailErrorMsg !== null || passwordErrorMsg !== null;
+
   return auth ? (
     <Navigate to="/todo" replace />
   ) : (
@@ -100,7 +103,7 @@ const SignIn = () => {
 
         <BtnWrapper
           type="submit"
-          disabled={emailErrorMsg || passwordErrorMsg ? true : false}
+          disabled={!!isButtonDisabled}
           data-testid="signin-button">
           로그인
         </BtnWrapper>
