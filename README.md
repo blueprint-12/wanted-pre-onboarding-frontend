@@ -2,34 +2,34 @@
 
 👩‍🦰 지원자: `조원희`  
 
-🚩 배포 링크: [TODO_LIST 바로가기](https://wanted-pre-onboarding-frontend-grgb.vercel.app/)
+🚩 배포 링크: [TODO_LIST 바로가기](https://wanted-pre-onboarding-frontend-grgb.vercel.app/)  
 
+🛠 사용 스택:  `TypeScript`, `Emotion`, `Axios`, `CRA`, `React v18`, `react-router-dom v6`
 ## 목차
 
 1. [실행 방법](#실행-방법)  
-2. [사용 패키지](#사용-패키지)  
+2. [사용 패키지](#사용-패키지)
 3. [이슈](#이슈)
 
 ## 실행 방법
 
 ```bash
 git clone . https://github.com/blueprint-12/wanted-pre-onboarding-frontend.git
-yarn && yarn start #(혹은 npm install && npm run start)
+yarn && yarn start #(혹은 npm install && npm start)
 ```
 
 ## 사용 패키지
 
-- axios (http)
-- react-router-dom v6 (라우팅)
 - pretendard (폰트)
-- craco & react-app-alias (webpack + ts에서 alias 설정을 위한 패키지)
-- emotion (CSS-in-js)
+- craco & react-app-alias (CRA + ts에서 alias 설정을 위한 패키지)
 
 ```bash
-yarn add -D @craco/craco react-app-alias
+# craco & react-app-alias
+yarn add @craco/craco react-app-alias
 ```
 
 ```bash
+# Emotion 설치
 yarn add @emotion/react @emotion/styled
 ```
 
@@ -62,3 +62,4 @@ yarn add @emotion/react @emotion/styled
   [lazy로드된 컴포넌트 배포 시 react router 동작 오류](https://blueprint-12.tistory.com/396)
   
 </details>
+
