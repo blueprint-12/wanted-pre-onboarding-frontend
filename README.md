@@ -1,11 +1,12 @@
 # 원티드 프리온보딩 FE 사전 과제
 
-👩‍🦰 지원자: `조원희`
+👩‍🦰 지원자: `조원희`  
+
+🚩 배포 링크: [TODO_LIST 바로가기](https://wanted-pre-onboarding-frontend-grgb.vercel.app/)
 
 ## 목차
 
 [실행 방법](#실행-방법)  
-[배포 링크](#배포-링크)  
 [사용 패키지](#사용-패키지)  
 [이슈](#이슈)
 
@@ -15,10 +16,6 @@
 git clone . https://github.com/blueprint-12/wanted-pre-onboarding-frontend.git
 yarn && yarn start #(혹은 npm install && npm run start)
 ```
-
-## 배포 링크
-
-[TODO_LIST 바로가기](https://wanted-pre-onboarding-frontend-grgb.vercel.app/)
 
 ## 사용 패키지
 
@@ -59,8 +56,9 @@ yarn add @emotion/react @emotion/styled
 </details>
 
 <details>
-  <summary><u>Vercel로 CRA 배포 시, react-router의 navigate hook 동작 에러</u></summary>
-
-    내용이 너무 길어 블로그에 옮길 예정
-
+  <summary><u>배포 시, react-router의 navigate hook 동작 에러</u></summary>
+  
+  `내용이 길어 블로그 포스팅으로 따로 분리해놨습니다.`  
+  [lazy로드된 컴포넌트 배포 시 react router 동작 오류](https://blueprint-12.tistory.com/396)
+  
 </details>
