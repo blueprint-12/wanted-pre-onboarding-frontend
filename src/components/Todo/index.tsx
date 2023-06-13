@@ -80,6 +80,7 @@ export default function Todo({ id, todo, isCompleted, userId }: TodoProps) {
         <TodoBackGroundWrapper isCompleted={aTodo.isCompleted}>
           <input
             defaultValue={todo}
+            data-testid="modify-input"
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
               setaTodo({ ...aTodo, todo: e.target.value });
             }}

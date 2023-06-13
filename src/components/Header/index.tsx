@@ -18,7 +18,7 @@ export default function Header() {
   //context 만들어서 auth이면 버튼이 로그아웃으로 보이게
   return (
     <Container>
-      <Link to="/todo">
+      <Link to="/">
         <b>👻Make a ToDo</b>
       </Link>
 

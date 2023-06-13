@@ -70,7 +70,7 @@ const SignUp = () => {
         <label htmlFor="email">Username:</label>
         <Input
           data-testid="email-input"
-          type="text"
+          type="email"
           id="email"
           value={email}
           onChange={onChangeEmail}

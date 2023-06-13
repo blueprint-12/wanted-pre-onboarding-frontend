@@ -51,7 +51,7 @@ const SignIn = () => {
           setAuth(localStorage.getItem("access_token"));
         }
         alert("로그인 성공!");
-        routeTo("/todos");
+        routeTo("/todo");
       })
       .catch((error) => {
         // console.log(error);
@@ -72,12 +72,11 @@ const SignIn = () => {
         <label htmlFor="email">Username:</label>
         <Input
           data-testid="email-input"
-          type="text"
+          type="email"
           id="email"
           value={email}
           onChange={onChangeEmail}
           placeholder="abc@email.com"
-          autoComplete="off"
         />
         {emailErrorMsg && <Error>{emailErrorMsg}</Error>}
 
