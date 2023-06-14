@@ -5,7 +5,7 @@ import { TodoProps } from "@typings/todo";
 
 import { Wrapper, TodoBackGroundWrapper } from "./styles";
 
-export default function Todo({ id, todo, isCompleted, userId }: TodoProps) {
+function Todo({ id, todo, isCompleted, userId }: TodoProps) {
   const [aTodo, setaTodo] = useState({ id, todo, isCompleted, userId });
   const [isEdit, setIsEdit] = useState(false);
   const dispatch = useDispatch();
@@ -79,6 +79,12 @@ export default function Todo({ id, todo, isCompleted, userId }: TodoProps) {
       {isEdit ? (
         <TodoBackGroundWrapper isCompleted={aTodo.isCompleted}>
           <input
+            type="checkbox"
+            name="todo"
+            checked={aTodo.isCompleted}
+            onChange={handleToggleCheckBox}
+          />
+          <input
             defaultValue={todo}
             data-testid="modify-input"
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
@@ -102,15 +108,14 @@ export default function Todo({ id, todo, isCompleted, userId }: TodoProps) {
         </TodoBackGroundWrapper>
       ) : (
         <TodoBackGroundWrapper isCompleted={aTodo.isCompleted}>
-          {<span>{todo}</span>}
-
           <input
             type="checkbox"
             name="todo"
             checked={aTodo.isCompleted}
             onChange={handleToggleCheckBox}
           />
-          {aTodo.isCompleted ? null : (
+          {<span>{todo}</span>}
+          {
             <>
               <button
                 data-testid="modify-button"
@@ -125,9 +130,11 @@ export default function Todo({ id, todo, isCompleted, userId }: TodoProps) {
                 삭제
               </button>
             </>
-          )}
+          }
         </TodoBackGroundWrapper>
       )}
     </Wrapper>
   );
 }
+
+export default React.memo(Todo);
