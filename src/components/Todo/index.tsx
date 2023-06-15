@@ -75,24 +75,25 @@ function Todo({ id, todo, isCompleted, userId }: TodoProps) {
   };
 
   return (
-    <Wrapper>
+    <Wrapper isCompleted={aTodo.isCompleted}>
       {isEdit ? (
-        <TodoBackGroundWrapper isCompleted={aTodo.isCompleted}>
-          <input
-            type="checkbox"
-            name="todo"
-            checked={aTodo.isCompleted}
-            onChange={handleToggleCheckBox}
-          />
-          <input
-            defaultValue={todo}
-            data-testid="modify-input"
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-              setaTodo({ ...aTodo, todo: e.target.value });
-            }}
-            autoFocus
-          />
-
+        <>
+          <TodoBackGroundWrapper>
+            <input
+              type="checkbox"
+              name="todo"
+              checked={aTodo.isCompleted}
+              onChange={handleToggleCheckBox}
+            />
+            <input
+              defaultValue={todo}
+              data-testid="modify-input"
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                setaTodo({ ...aTodo, todo: e.target.value });
+              }}
+              autoFocus
+            />
+          </TodoBackGroundWrapper>
           <button
             type="button"
             data-testid="submit-button"
@@ -105,33 +106,32 @@ function Todo({ id, todo, isCompleted, userId }: TodoProps) {
             onClick={handleCancelBtnClick}>
             취소
           </button>
-        </TodoBackGroundWrapper>
+        </>
       ) : (
-        <TodoBackGroundWrapper isCompleted={aTodo.isCompleted}>
-          <input
-            type="checkbox"
-            name="todo"
-            checked={aTodo.isCompleted}
-            onChange={handleToggleCheckBox}
-          />
-          {<span>{todo}</span>}
-          {
-            <>
-              <button
-                data-testid="modify-button"
-                type="button"
-                onClick={() => setIsEdit(true)}>
-                수정
-              </button>
-              <button
-                data-testid="delete-button"
-                type="button"
-                onClick={() => handleDelete(id)}>
-                삭제
-              </button>
-            </>
-          }
-        </TodoBackGroundWrapper>
+        <>
+          <TodoBackGroundWrapper>
+            <input
+              type="checkbox"
+              name="todo"
+              checked={aTodo.isCompleted}
+              onChange={handleToggleCheckBox}
+            />
+            {<span>{todo}</span>}
+          </TodoBackGroundWrapper>
+
+          <button
+            data-testid="modify-button"
+            type="button"
+            onClick={() => setIsEdit(true)}>
+            수정
+          </button>
+          <button
+            data-testid="delete-button"
+            type="button"
+            onClick={() => handleDelete(id)}>
+            삭제
+          </button>
+        </>
       )}
     </Wrapper>
   );
