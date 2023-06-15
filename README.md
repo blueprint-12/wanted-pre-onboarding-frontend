@@ -14,7 +14,7 @@
 ## 실행 방법
 
 ```bash
-git clone . https://github.com/blueprint-12/wanted-pre-onboarding-frontend.git
+git clone https://github.com/blueprint-12/wanted-pre-onboarding-frontend.git . #현재 경로에 클론
 yarn && yarn start #(혹은 npm install && npm start)
 ```
 
