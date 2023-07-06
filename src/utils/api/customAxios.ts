@@ -1,11 +1,10 @@
 import axios from "axios";
-
+import getToken from "./getToken";
 interface CustomError {
   status: number;
   message: string;
 }
 
-const token = localStorage.getItem("access_token");
 const BASE_URL = "https://www.pre-onboarding-selection-task.shop/";
 
 export const api = axios.create({
@@ -13,16 +12,15 @@ export const api = axios.create({
   timeout: 5000,
   headers: {
     "Content-Type": "application/json",
-    Authorization: `Bearer ${token}`,
+    Authorization: `Bearer ${getToken()}`,
   },
 });
 
 //요청 API
 api.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem("access_token");
-
-    if (token && config.headers) {
+    let token = getToken();
+    if (getToken() && config.headers) {
       config.headers["Authorization"] = `Bearer ${token}`;
     }
     return config;
