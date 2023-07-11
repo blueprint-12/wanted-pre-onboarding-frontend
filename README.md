@@ -14,7 +14,6 @@
   - [사용 패키지](#사용-패키지)
   - [이슈](#이슈)
   - [프로젝트 상세 설명](#프로젝트-상세-설명)
-  - [업데이트](#업데이트)
 
 ## 폴더 구조
 
@@ -81,8 +80,3 @@ yarn add @emotion/react @emotion/styled
 ## 프로젝트 상세 설명
 
 [프로젝트 상세 설명 포스팅](https://blueprint-12.tistory.com/399)
-
-## 업데이트
-
-- [ ] prettier, ESLint, husky 적용
-- [ ] 불필요한 state 제거하기
