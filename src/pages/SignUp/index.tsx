@@ -16,7 +16,7 @@ const SignUp = () => {
   const [emailErrorMsg, setEmailErrorMsg] = useState<string | null>("");
   const [passwordErrorMsg, setPasswordErrorMsg] = useState<string | null>("");
 
-  const [signInErorrMsg, setSignInErrorMsg] = useState("");
+  const [signInErrorMsg, setSignInErrorMsg] = useState("");
 
   const onChangeEmail = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -96,7 +96,7 @@ const SignUp = () => {
           data-testid="signup-button">
           회원가입
         </BtnWrapper>
-        {signInErorrMsg && <Error>{signInErorrMsg}</Error>}
+        {signInErrorMsg && <Error>{signInErrorMsg}</Error>}
       </FormCont>
       <Link to="/signin">로그인 하러가기</Link>
     </>
