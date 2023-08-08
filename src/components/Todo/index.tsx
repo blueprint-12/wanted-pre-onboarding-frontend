@@ -23,6 +23,10 @@ function Todo({ id, todo, isCompleted, userId }: TodoProps) {
 
   //수정하기
   const handleUpdate = async (aTodo: TodoProps) => {
+    if (aTodo.todo === todo) {
+      setIsEdit(false);
+      return;
+    }
     await api
       .put(`/todos/${aTodo.id}`, {
         todo: aTodo.todo,
